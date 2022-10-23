@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Some examples to demonstrate how to use QTerminal bookmarks.
+Adjust them to fit your needs. -->
+<qterminal>
+<group name="Base">
+    <command name="Open in Filemanager" value="xdg-open $(pwd)"/>
+    <command name="Edit bookmarks" value="featherpad ~/.config/qterminal.org/qterminal_bookmarks.xml"/>
+    <command name="Clear terminal" value="clear"/>
+</group>
+
+<group name="Utility">
+    <command name="Reset $HOME permissions" value="sudo chown -R $USER:$USER /home/$USER"/>
+    <command name="Find keycode" value="xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p' xev | grep -A2 --line-buffered '^KeyRelease' | sed -n '/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p' "/>
+    <command name="geany" value="sudo apt install -y geany"/>
+    <command name="mc" value="sudo apt install -y mc"/>
+    <command name="remmina" value="sudo apt install -y remmina"/>
+</group>
+
+<group name="Cd">
+    <command name="Desktop" value="cd $(xdg-user-dir DESKTOP)"/>
+    <command name="Downloads" value="cd $(xdg-user-dir DOWNLOAD)"/>
+    <command name="~/.config" value="cd $XDG_CONFIG_HOME"/>
+    <command name="~/.local/share" value="cd $XDG_DATA_HOME"/>
+  </group>
+
+<group name="Network">
+   <group name="ip">
+     <command name="ip" value="ip a; ip r"/>
+   </group>
+
+   <group name="nmap">
+     <command name="Install" value="sudo apt install -y nmap"/>
+     <command name="192.168.0" value="nmap -sP 192.168.0.0/24"/>
+     <command name="192.168.1" value="nmap -sP 192.168.1.0/24"/>
+     <command name="192.168.4" value="nmap -sP 192.168.4.0/24"/>
+   </group>
+
+   <group name="ansible">
+     <command name="Install" value="sudo apt install -y ansible"/>
+   </group>
+
+</group>
+
+<group name="Apt">
+   <command name="Update" value="sudo apt update"/>
+   <command name="Upgrade" value="sudo apt upgrade"/>
+   <command name="Fix" value="sudo apt install --fix-broken"/>
+   <command name="Autoremove" value="sudo apt autoremove"/>
+   <command name="Install Defaults" value="sudo apt install -y ansible auto-apt-proxy curl make mc nmap nfs-common python3-pip unrar"/>
+
+   <group name="Auto-apt-proxy">
+      <command name="Install" value="sudo apt install -y auto-apt-proxy"/>
+      <command name="Test" value="auto-apt-proxy"/>
+   </group>
+</group>
+
+<group name="Games">
+   <command name="kpat" value="sudo apt install -y kpat"/>
+</group>
+
+<group name="make">
+   <command name="--" value="make"/>
+   <command name="all" value="make all"/>
+   <command name="install" value="make install"/>
+</group>
+
+
+</qterminal>
